@@ -79,10 +79,10 @@ var getDetails = function (id, type, func) {
     })
 }
 
-// loops through the array of data to pass information to call the api and create cards
+// loops through the array of data to pass information to create content cards
 var createContentCards = function (data, type, func) {
     data.forEach(function (content) {
-        getDetails(content.id, type, func);
+        createCard(createContentObj(content,type),getContainer(func));
     });
 }
 
@@ -124,6 +124,7 @@ var createModal = function (contentObj) {
 
 // creates the cards for the content and appends them to the specified container
 var createCard = function (data, container) {
+    console.log(data);
     var card = $('.card-template .content-card').clone();
     card.find('.card').attr('data-content-type', data.type).attr('data-content-id', data.id);
     card.find('.poster').attr('src', data.poster);
@@ -156,7 +157,7 @@ var removeFromWatchlist = function (id) {
     saveWatchlist();
 }
 
-// handles the action for the card button or modal button (adding or removing for watchlsit)
+// handles the action for the card button or modal button (adding or removing for watchlist)
 var watchlistButtonAction = function (id, type) {
     var contentObj = {
         id: id,

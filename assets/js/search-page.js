@@ -18,22 +18,22 @@ var loadWatchlist = function () {
 }
 
 // switch to determine which function or parameters to use
-var functionSwitch = function (contentObj, func) {
+var getContainer = function (func) {
     switch (func) {
         case 'searchCard':
-            createCard(contentObj, searchContainer);
+            return searchContainer;
             break;
         case 'popMovieCard':
-            createCard(contentObj, popMovieContainer);
+            return popMovieContainer;
             break;
         case 'popTVCard':
-            createCard(contentObj, popTVContainer);
+            return popTVContainer;
             break;
         case 'topMovieCard':
-            createCard(contentObj, topMovieContainer);
+            return topMovieContainer;
             break;
         case 'topTVCard':
-            createCard(contentObj, topTVContainer);
+            return topTVContainer;
             break;
     }
 }
@@ -45,6 +45,7 @@ var getPopular = function (type) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
+                //console.log(data);
                 // returns an object with a results property
                 createContentCards(data.results, type, 'pop' + typeFormat(type) + 'Card');
             })
