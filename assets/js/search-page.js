@@ -45,7 +45,6 @@ var getPopular = function (type) {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                //console.log(data);
                 // returns an object with a results property
                 createContentCards(data.results, type, 'pop' + typeFormat(type) + 'Card');
             })

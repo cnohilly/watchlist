@@ -124,7 +124,6 @@ var createModal = function (contentObj) {
 
 // creates the cards for the content and appends them to the specified container
 var createCard = function (data, container) {
-    console.log(data);
     var card = $('.card-template .content-card').clone();
     card.find('.card').attr('data-content-type', data.type).attr('data-content-id', data.id);
     card.find('.poster').attr('src', data.poster);
