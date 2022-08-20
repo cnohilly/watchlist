@@ -4,6 +4,7 @@ var popTVContainer = $('#pop-tv-container');
 var topMovieContainer = $('#top-movies-container');
 var topTVContainer = $('#top-tv-container');
 
+
 // attempts to load the watchlist from localstorage 
 var loadWatchlist = function () {
     // loads the saved array from localstorage
@@ -86,15 +87,15 @@ var searchContent = function (query, type) {
 var displaySearchSection = function (active) {
     var section = $('#search-section');
     if (active) {
-            section.removeClass('is-hidden');
+        section.removeClass('is-hidden');
     } else {
-            section.addClass('is-hidden');
+        section.addClass('is-hidden');
     }
 }
 
 // updates the text for the footer item for the card with the specific id
 var updateCardById = function (id) {
-    $('.card[data-content-id='+id+']').find('.card-footer-item').text(contentButtonText(id));
+    $('.card[data-content-id=' + id + ']').find('.card-footer-item').text(contentButtonText(id));
 }
 
 // handles the search form

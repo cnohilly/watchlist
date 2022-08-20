@@ -1,5 +1,6 @@
 var planToWatchContainer = $('#plan-to-watch-list');
 
+
 // attempts to load the watchlist from localstorage 
 var loadWatchlist = function () {
     // loads the saved array from localstorage
@@ -31,26 +32,26 @@ var getWatchlistGenres = function () {
 }
 
 // switch to determine which function or parameters to use
-var functionSwitch = function(contentObj,func){
+var functionSwitch = function (contentObj, func) {
     switch (func) {
         case 'watchlistCard':
-            createCard(contentObj,planToWatchContainer);
+            createCard(contentObj, planToWatchContainer);
             break;
     }
 }
 
 // loops through the watchlist to create cards for each piece of content
-var createWatchlistCards = function(){
+var createWatchlistCards = function () {
     planToWatchContainer.empty();
-    watchlist.forEach(function(content){
-        getDetails(content.id,content.type,'watchlistCard');
+    watchlist.forEach(function (content) {
+        getDetails(content.id, content.type, 'watchlistCard');
     });
 }
 
 // removes a card from the screen for the specific id
 var updateCardById = function (id) {
     // plays small slide animation to hide the element then removes the element once the animation is complete
-    $('.card[data-content-id='+id+']').closest('.content-card').slideUp(250,function(){
+    $('.card[data-content-id=' + id + ']').closest('.content-card').slideUp(250, function () {
         $(this).remove();
     });
 }
